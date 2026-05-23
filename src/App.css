@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;700;800&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0d0d0d;
+  --surface: #141414;
+  --border: #2a2a2a;
+  --neon: #00ff88;
+  --neon-dim: rgba(0, 255, 136, 0.08);
+  --neon-glow: 0 0 20px rgba(0, 255, 136, 0.4);
+  --text: #e8e8e8;
+  --muted: #555;
+  --white: #ffffff;
+}
+
+html { font-size: 16px; }
+
+body {
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(rgba(0,255,136,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,136,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  min-height: 100vh;
+  font-family: 'Space Mono', monospace;
+  color: var(--text);
+}
+
+
+.home-page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 64px 24px 96px;
+}
+
+.home-page h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 40px;
+}
+
+.home-page h1::before {
+  content: '//';
+  font-family: 'Space Mono', monospace;
+  font-size: 1rem;
+  color: var(--neon);
+  position: absolute;
+  top: -24px;
+  left: 0;
+  letter-spacing: 0.1em;
+}
+
+.home-page > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 56px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--neon);
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 1px solid var(--neon);
+  position: relative;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.home-page > a::before {
+  content: '+';
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.home-page > a:hover {
+  background: var(--neon-dim);
+  box-shadow: var(--neon-glow);
+}
+
+/* Blog cards */
+.div_1 {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 28px 28px 24px;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+  animation: slideIn 0.35s ease both;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.div_1::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--neon);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.25s ease;
+}
+
+.div_1:hover {
+  border-color: rgba(0,255,136,0.3);
+  box-shadow: 0 0 30px rgba(0,255,136,0.06);
+}
+
+.div_1:hover::before {
+  transform: scaleY(1);
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.div_1 h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.div_1 p {
+  font-size: 0.8rem;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-bottom: 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+a.more {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--neon);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.2s;
+}
+
+a.more::after {
+  content: '→';
+}
+
+a.more:hover {
+  gap: 14px;
+}
+
+
+.div_2 {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 72px 24px 100px;
+}
+
+.h_1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2rem, 6vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 40px;
+  position: relative;
+  padding-bottom: 28px;
+}
+
+.h_1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: var(--neon);
+  box-shadow: var(--neon-glow);
+}
+
+.p_2 {
+  font-size: 0.88rem;
+  line-height: 2;
+  color: #999;
+  letter-spacing: 0.01em;
+}
+
+
+form {
+  max-width: 580px;
+  margin: 0 auto;
+  padding: 64px 24px 96px;
+}
+
+form::before {
+  content: '> new_post.md';
+  display: block;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--neon);
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+
+form::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.form-title-heading {
+  font-family: 'Syne', sans-serif;
+}
+
+form > input[type="text"] {
+  display: block;
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0;
+  padding: 14px 16px;
+  font-family: 'Syne', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--white);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  margin-bottom: 16px;
+}
+
+form > input[type="text"]::placeholder {
+  color: var(--muted);
+  font-weight: 400;
+  text-transform: none;
+}
+
+form > input[type="text"]:focus {
+  border-color: var(--neon);
+  box-shadow: 0 0 0 3px rgba(0,255,136,0.08);
+}
+
+form > textarea {
+  display: block;
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 14px 16px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.82rem;
+  line-height: 1.9;
+  color: #aaa;
+  outline: none;
+  resize: none;
+  min-height: 220px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  margin-bottom: 24px;
+}
+
+form > textarea::placeholder {
+  color: var(--muted);
+}
+
+form > textarea:focus {
+  border-color: var(--neon);
+  box-shadow: 0 0 0 3px rgba(0,255,136,0.08);
+}
+
+form br { display: none; }
+
+form > button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  background: var(--neon);
+  color: var(--bg);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.1s;
+}
+
+form > button::after {
+  content: '↵';
+  font-size: 1rem;
+}
+
+form > button:hover {
+  box-shadow: var(--neon-glow);
+}
+
+form > button:active {
+  transform: scale(0.98);
+}
+
+/* ── RESPONSIVE ── */
+
+@media (max-width: 500px) {
+  .home-page,
+  .div_2,
+  form {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .div_1 {
+    padding: 20px 18px;
+  }
+}
